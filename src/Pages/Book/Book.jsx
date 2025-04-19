@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { FaRegStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
 
 const Book = ({ data }) => {
     // const data= use(bookPromise);
@@ -17,14 +17,14 @@ const Book = ({ data }) => {
                 <div className='flex flex-col gap-5 mt-4'>
                     <div>
                         <h1 className='font-bold text-2xl mb-3'>{bookName}</h1>
-                        <h3>By : {author}</h3>
+                        <h3 className='font-medium'>By : {author}</h3>
                     </div>
                     <span className='border-b-2 border-[#dfdfdf] border-dashed'></span>
                     <div className='flex justify-between items-center'>
                         <h4>{category}</h4>
                         <div className='flex items-center gap-2'>
                             <h4>{rating}</h4>
-                            <span><FaRegStar size={24} /></span>
+                            <span><CiStar size={24} /></span>
                         </div>
                     </div>
                 </div>
