@@ -1,4 +1,7 @@
 import React from 'react';
+import { CiLocationOn } from "react-icons/ci";
+import { GoPeople } from "react-icons/go";
+import { LuBookText } from "react-icons/lu";
 
 const MyBooks = ({ book }) => {
     const { bookId, bookName, author, image, rating, category, publisher, review, tags, totalPages, yearOfPublishing } = book;
@@ -20,17 +23,26 @@ const MyBooks = ({ book }) => {
                         }
                     </div>
                     <div className='flex items-center gap-2'>
-                        <h4>Year of Publishing: </h4>
+                        <div className='flex items-center gap-0.5'>
+                            <CiLocationOn />
+                            <h4>Year of Publishing: </h4>
+                        </div>
                         <p>{yearOfPublishing}</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-4'>
                     <div className='flex items-center gap-2'>
-                        <h4>Publisher:</h4>
+                        <div className='flex items-center gap-0.5'>
+                            <GoPeople />
+                            <h4>Publisher:</h4>
+                        </div>
                         <p>{publisher}</p>
                     </div>
                     <div className='flex items-center gap-2'>
-                        <h4>page:</h4>
+                        <div className='flex items-center gap-0.5'>
+                            <LuBookText />
+                            <h4>Pages:</h4>
+                        </div>
                         <p>{totalPages}</p>
                     </div>
                 </div>

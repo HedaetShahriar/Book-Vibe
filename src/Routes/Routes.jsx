@@ -11,33 +11,43 @@ import BookDetails from '../Pages/BookDetails/BookDetails';
 import ReadList from '../Pages/ReadList/ReadList';
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      Component: Root,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-          index: true,
-          path: '/',
-          Component: Home,
-          loader: () => fetch('./booksData.json'),
+  {
+    path: "/",
+    Component: Root,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        path: '/',
+        Component: Home,
+        loader: async () => {
+          const response = await fetch('/booksData.json');
+          if (!response.ok) throw new Error("Failed to load books data");
+          return await response.json(); // should return the array of books
         },
-        {
-          path: '/about',
-          Component: About,
+      },
+      {
+        path: '/about',
+        Component: About,
+      },
+      {
+        path: '/readList',
+        loader: async () => {
+          const response = await fetch('/booksData.json');
+          if (!response.ok) throw new Error("Failed to load books data");
+          return await response.json();
         },
-        {
-          path: '/readList',
-          loader: () => fetch('./booksData.json'),
-          Component:ReadList,
+        Component: ReadList,
+      },
+      {
+        path: '/bookDetails/:id',
+        loader: async () => {
+          const response = await fetch('/booksData.json');
+          if (!response.ok) throw new Error("Failed to load books data");
+          return await response.json();
         },
-        {
-          path: '/bookDetails/:id',
-          loader: () => fetch('./booksData.json'),
-          Component: BookDetails,
-        }
-      ]
-
-
-    },
-  ]);
+        Component: BookDetails,
+      }
+    ]
+  },
+]);
