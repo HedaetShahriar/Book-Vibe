@@ -10,7 +10,7 @@ const Book = ({ data }) => {
         <Link to={`/bookDetails/${bookId}`} >
             <div className='border border-[#F3F3F3] rounded-xl p-6 flex flex-col gap-4'>
                 <div className='bg-[#F3F3F3] py-6  rounded-xl '>
-                    <img src={image} alt="" className='w-[154px] h-48 mx-auto' />
+                    <img src={image} alt="" className='w-[140px] h-48 mx-auto rounded-sm'/>
                 </div>
                 <div >
                     {
